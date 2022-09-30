@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+    Route::group(['middleware'=> ['auth']],function() {
+        Route::resource('blogs', App\Http\Controllers\Pub\BlogController::class);
+    });
+
+require __DIR__.'/auth.php';
