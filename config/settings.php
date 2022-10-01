@@ -8,5 +8,5 @@
 
 return [
     'paginate_pub' => 10,
-    'paginate_admin' => 20,
+    'paginate_admin' => 8,
 ];

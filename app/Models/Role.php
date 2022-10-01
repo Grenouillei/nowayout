@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Traits\UrlAliasTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Model
+class Role extends Model
 {
-    use HasFactory,UrlAliasTrait,SoftDeletes;
+    use HasFactory;
 
     protected $fillable  = [
         'title',
-        'text',
+        'alias',
     ];
+
+    const ADMIN_ID = 1;
+    const GUEST_ID = 2;
 }

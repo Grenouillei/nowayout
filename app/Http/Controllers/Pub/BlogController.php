@@ -24,7 +24,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = $this->service->getAllBlogs();
+        $blogs = $this->service->getAllBlogs('paginate_pub');
         return view('public.blogs.index')->with(['blogs'=>$blogs]);
     }
 
@@ -57,7 +57,7 @@ class BlogController extends Controller
      */
     public function show($alias)
     {
-        $blog = Blog::where('alias',$alias)->first();
+        $blog = $this->service->getBlog($alias);
         return view('public.blogs.form')->with(['blog'=>$blog]);
     }
 
